@@ -36,8 +36,8 @@ pinboard({
     enabled: false,
   },
   app: {
-    title: 'Business technical support finder',
-    tagLine: 'Find resources for businesss in the City',
+    title: 'Resources for businesses',
+    tagLine: 'Find services and support for businesses in Philadelphia',
     logoAlt: 'City of Philadelphia',
     type: 'business',
   },
