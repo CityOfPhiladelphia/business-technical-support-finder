@@ -1,5 +1,5 @@
 module.exports = {
-  publicPath: '/business/prod/',
+  publicPath: '/commerce/business-resource-finder/',
   chainWebpack: (config) => {
     config.resolve.symlinks(false);
   },
