@@ -766,13 +766,13 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
-"@philly/pinboard@^0.1.16":
-  version "0.1.16"
-  resolved "https://registry.yarnpkg.com/@philly/pinboard/-/pinboard-0.1.16.tgz#5e2a0d8ef284df5f073e004f0fcb424fedfeec46"
-  integrity sha512-+MrqJT0PnXVia+STqiiv0yHegNkG7Ks+e8Llv+qShgLAORJjUhJfKGR1hae8Qwk0ALsqjpgh1F9reKHj0p0dow==
+"@philly/pinboard@^0.1.17":
+  version "0.1.17"
+  resolved "https://registry.yarnpkg.com/@philly/pinboard/-/pinboard-0.1.17.tgz#e55b27777d41ac3f9bc4990f4922e12d7e7078ef"
+  integrity sha512-LcMfaEMmle4rL1qWjXKOGibTAnRoh4uOdCyuHNm1Mpx1tOSE3KLCTadUE75j/DpNtSiGesvh6bERhxc7v01MEQ==
   dependencies:
     "@fortawesome/free-brands-svg-icons" "^5.11.2"
-    "@philly/vue-comps" "1.0.46"
+    "@philly/vue-comps" "1.0.47"
     "@philly/vue-datafetch" "0.0.29"
     "@philly/vue-mapping" "1.0.47"
     axios "^0.19.0"
@@ -782,10 +782,10 @@
     vue-router "^3.0.6"
     vuex "^3.1.1"
 
-"@philly/vue-comps@1.0.46":
-  version "1.0.46"
-  resolved "https://registry.yarnpkg.com/@philly/vue-comps/-/vue-comps-1.0.46.tgz#6991a81114418b0350cc09ae21f0aae6ce294991"
-  integrity sha512-cq9H5MNLXtzZeAh7l6nq6cLGafDD5jwoCWhAecAjhBdhu9f5ttdZaDLCQeIYx30J+WqrPO7kXyFjZXyrV6mZwQ==
+"@philly/vue-comps@1.0.47":
+  version "1.0.47"
+  resolved "https://registry.yarnpkg.com/@philly/vue-comps/-/vue-comps-1.0.47.tgz#4f461f7d3c87599a18ff9867d10b280ad844e9d7"
+  integrity sha512-030Fk3wES8PkdqvEF220T/5Cs6mrB6FFQXMT31kSzt442eJLWG/kIfnJYaLOQ+xeec6FH0E8WeQxEeBiJPIw6A==
   dependencies:
     "@fortawesome/fontawesome-svg-core" "^1.2.15"
     "@fortawesome/free-regular-svg-icons" "^5.7.2"
@@ -6751,9 +6751,9 @@ javascript-stringify@^1.6.0:
   integrity sha1-FC0RHzpuPa6PSpr9d9RYVbWpzOM=
 
 jquery@>=3.0.0:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.4.1.tgz#714f1f8d9dde4bdfa55764ba37ef214630d80ef2"
-  integrity sha512-36+AdBzCL+y6qjw5Tx7HgzeGCzC81MDDgaUP8ld2zhx58HdqXGoBd+tHdrBMiyjGQs0Hxs/MLZTu/eHNJJuWPw==
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.5.0.tgz#9980b97d9e4194611c36530e7dc46a58d7340fc9"
+  integrity sha512-Xb7SVYMvygPxbFMpTFQiHh1J7HClEaThguL15N/Gg37Lri/qKyhRGZYzHRyLH8Stq3Aow0LsHO2O2ci86fCrNQ==
 
 js-base64@^2.1.8:
   version "2.5.1"
