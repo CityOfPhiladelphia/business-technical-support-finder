@@ -1,7 +1,9 @@
 # Business Technical Support Finder
-A map and filterable list for finding technical support for businesses. Based on the pinboard framework.
+
+This is the sourcecode for the [Resources for businesses](https://phila-resource-finder.s3.amazonaws.com/business/prod/index.html) app.
 
 ![Example](https://mapboard-images.s3.amazonaws.com/pinboard/business-resource-finder.JPG)
+![Example](https://mapboard-images.s3.amazonaws.com/pinboard/phone-business-resource-finder.JPG)
 
 ## Local development
 `yarn install`
