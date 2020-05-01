@@ -2,12 +2,37 @@
 
 This is the sourcecode for the [Resources for businesses](https://phila-resource-finder.s3.amazonaws.com/business/prod/index.html) app.
 
+The app uses the framework [Pinboard](https://github.com/CityOfPhiladelphia/pinboard), in npm as [@phila/pinboard](https://www.npmjs.com/package/@phila/pinboard).
+
 ![Example](https://mapboard-images.s3.amazonaws.com/pinboard/business-resource-finder.JPG)
 ![Example](https://mapboard-images.s3.amazonaws.com/pinboard/phone-business-resource-finder.JPG)
 
-## Local development
-`yarn install`
-`yarn serve`
+Full instructions for how this repo uses the @phila/pinboard package can be found in the [Pinboard wiki](https://github.com/CityOfPhiladelphia/pinboard/wiki).
+
+Basic instructions are here:
+
+## Project setup
+```
+yarn install
+```
+
+### Compiles and hot-reloads for development
+```
+yarn run serve
+```
+
+### Compiles and minifies for production
+```
+yarn run build
+```
+
+### Lints and fixes files
+```
+yarn run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Deployments
 
