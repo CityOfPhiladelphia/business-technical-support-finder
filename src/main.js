@@ -37,7 +37,15 @@ pinboard({
     ],
   },
   locationInfo: {
-    siteName: 'organization_name',
+    siteName: function(item, transforms) {
+      let value;
+      value = item.organization_name;
+      if (value.includes('(WORC)')) {
+        // console.log('value:', value);
+        value = 'Women\'s Opportunity Resource Center (WORC)';
+      }
+      return value;
+    },
   },
   refine: {
     type: 'categoryField_array',
@@ -72,7 +80,7 @@ pinboard({
     // password: process.env.VUE_APP_CYCLOMEDIA_PASSWORD,
     // apiKey: process.env.VUE_APP_CYCLOMEDIA_API_KEY,
   },
-  // markerType: 'pin-marker',
+  markerType: 'pin-marker',
   map: {
     type: 'mapbox',
     // tiles: 'hosted',
