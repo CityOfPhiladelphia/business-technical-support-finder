@@ -20,6 +20,8 @@ library.add(faExclamationTriangle, faHandHoldingHeart);
 // import pinboard
 import pinboard from '@phila/pinboard/src/main.js';
 
+import greeting from './general/greeting';
+
 // data-sources
 import business from './data-sources/business';
 
@@ -36,6 +38,7 @@ pinboard({
       'keyword',
     ],
   },
+  greeting,
   locationInfo: {
     siteName: function(item, transforms) {
       let value;
