@@ -34,8 +34,8 @@ pinboard({
   },
   comboSearch: {
     dropdown: [
-      'keyword',
       'address',
+      'keyword',
     ],
   },
   greeting,
