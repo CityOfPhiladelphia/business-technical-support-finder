@@ -33,10 +33,8 @@ pinboard({
     type: 'business',
   },
   comboSearch: {
-    dropdown: [
-      'address',
-      'keyword',
-    ],
+    dropdown: [ 'address' ],
+    placeholderText: 'Search by address',
   },
   greeting,
   locationInfo: {
@@ -184,5 +182,9 @@ pinboard({
         type: 'raster',
       },
     },
+  },
+  i18n: {
+    // header: 'i18nBanner',
+    enabled: false,
   },
 });
