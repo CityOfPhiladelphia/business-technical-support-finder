@@ -32,6 +32,9 @@ pinboard({
     logoAlt: 'City of Philadelphia',
     type: 'business',
   },
+  gtag: {
+    category: 'rf-business',
+  },
   comboSearch: {
     dropdown: [ 'address' ],
     placeholderText: 'Search by address',
