@@ -1,6 +1,7 @@
 module.exports = {
   filenameHashing: false,
-  publicPath: '/commerce/business-resource-finder/',
+  publicPath: '/commerce/dev/',
+  // publicPath: '/commerce/business-resource-finder/',
   chainWebpack: (config) => {
     config.resolve.symlinks(false);
   },
