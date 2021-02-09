@@ -20,10 +20,15 @@ library.add(faExclamationTriangle, faHandHoldingHeart);
 // import pinboard
 import pinboard from '@phila/pinboard/src/main.js';
 
-import greeting from './general/greeting';
+// import greeting from './general/greeting';
 
 // data-sources
 import business from './data-sources/business';
+
+import customGreeting from './components/customGreeting.vue';
+const customComps = {
+  'customGreeting': customGreeting,
+};
 
 pinboard({
   app: {
@@ -39,7 +44,8 @@ pinboard({
     dropdown: [ 'address' ],
     placeholderText: 'Search by address',
   },
-  greeting,
+  customComps,
+  // greeting,
   locationInfo: {
     siteName: function(item, transforms) {
       let value;
