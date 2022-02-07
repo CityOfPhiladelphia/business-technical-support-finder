@@ -1,7 +1,8 @@
 module.exports = {
   filenameHashing: false,
+  publicPath: process.env.VUE_APP_PUBLICPATH,
   // publicPath: '/commerce/dev/',
-  publicPath: '/commerce/business-resource-finder/',
+  // publicPath: '/commerce/business-resource-finder/',
   chainWebpack: (config) => {
     config.resolve.symlinks(false);
   },
