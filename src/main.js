@@ -30,6 +30,8 @@ const customComps = {
   'customGreeting': customGreeting,
 };
 
+console.log('main.js process.env.NODE_ENV:', process.env.NODE_ENV, 'process.env.VUE_APP_PUBLICPATH:', process.env.VUE_APP_PUBLICPATH);
+
 pinboard({
   app: {
     title: 'Resources for businesses',
