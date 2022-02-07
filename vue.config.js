@@ -1,8 +1,5 @@
 module.exports = {
-  filenameHashing: false,
   publicPath: process.env.VUE_APP_PUBLICPATH,
-  // publicPath: '/commerce/dev/',
-  // publicPath: '/commerce/business-resource-finder/',
   chainWebpack: (config) => {
     config.resolve.symlinks(false);
   },
@@ -34,7 +31,7 @@ module.exports = {
   // //   },
   // // },
   // },
-  assetsDir: 'static',
+  // assetsDir: 'static',
   transpileDependencies: [
     // can be string or regex
     '@phila/pinboard',
