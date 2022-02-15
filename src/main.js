@@ -41,10 +41,29 @@ pinboard({
   gtag: {
     category: 'rf-business',
   },
-  comboSearch: {
-    dropdown: [ 'address' ],
-    placeholderText: 'Search by address',
+  resetDataOnGeocode: true,
+  // addressInput: {
+  //   placeholder: 'Search by address',
+  // },
+  searchBar: {
+    placeholder: 'Search by address',
+    searchTypes: [
+      'address',
+      // 'keyword',
+    ],
+    labelText:  {
+      address: 'Search by address',
+      // keyword: 'Search by keyword',
+    },
+    placeholderText: {
+      address: 'Search by address',
+      // keyword: 'Search by keyword',
+    },
   },
+  // comboSearch: {
+  //   dropdown: [ 'address' ],
+  //   placeholderText: 'Search by address',
+  // },
   customComps,
   // greeting,
   locationInfo: {
@@ -79,9 +98,29 @@ pinboard({
       include_units: true,
     },
   },
-  footer: {
-    'aboutFinder': false,
-  },
+  footer: [
+    {
+      type: "native",
+      href: "https://www.phila.gov/",
+      attrs: {
+        target: "_blank",
+      },
+      text: "City of Philadelphia",
+    },
+    {
+      type: "native",
+      href: "/commerce/business-resource-finder",
+      text: "About",
+    },
+    {
+      type: "native",
+      href: "https://www.phila.gov/feedback/",
+      attrs: {
+        target: "_blank",
+      },
+      text: "Feedback",
+    },
+  ],
   cyclomedia: {
     enabled: false,
     // measurementAllowed: false,
