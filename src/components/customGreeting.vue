@@ -1,11 +1,11 @@
 <template>
   <div
-    class="grid-y custom-greeting"
+    class="custom-greeting content"
   >
-    <div class="open-list-div">
-      <phila-button
-        class="button open-list-button"
-        @click.native="$emit('view-list')"
+    <div class="has-text-centered container">
+      <button
+        class="button open-list-button is-primary"
+        @click="$emit('view-list')"
         v-html="$t('app.viewList')"
       />
     </div>
@@ -13,27 +13,24 @@
     <div
       class="main-area"
     >
-      <h1>
-        About this finder
-      </h1>
-      <p>
-        This tool can help you connect with organizations that offer guidance on starting, running, and growing a business.  You can:
-      </p>
+      <h3>About this finder</h3>
+      <p>This tool can help you connect with organizations that offer guidance on starting, running, and growing a business.  You can:</p>
+      <div class="callout list-div">
+        <ul>
+          <li>Browse the list of organizations.</li>
+          <li>Search by address or keyword.</li>
+          <li>Filter your results by the type of help you need.</li>
+        </ul>
+      </div>
 
-      <ul>
-        <li>Browse the list of organizations.</li>
-        <li>Search by address or keyword.</li>
-        <li>Filter your results by the type of help you need.</li>
-      </ul>
-
-      <h1>Adding your organization</h1>
+      <h3>Adding your organization</h3>
       <p>
         Does your organization offer free or low-cost services to Philadelphia businesses?
         To learn how to be added to this finder, contact the Department of Commerce at
         <a href="mailto:business@phila.gov">business@phila.gov</a>.
       </p>
 
-      <h1>Additional resources</h1>
+      <h3>Additional resources</h3>
       <ul>
         <li>
           For the latest webinars and events, visit <a
@@ -48,60 +45,14 @@
           >Commerce's homepage</a>.
         </li>
       </ul>
-
-      <!--
-      <ul>
-        <li
-          v-for="(item, index) in $config.i18n.data.messages['en-US'].introPage.ul1"
-          :key="index"
-        >
-          {{ $t('introPage.ul1.' + index) }}
-        </li>
-      </ul>
-      <h2>
-        {{ $t('introPage.section1Title') }}
-      </h2>
-      <p>
-        {{ $t('introPage.p2') }}
-      </p>
-      <ul>
-        <li
-          v-for="(item, index) in $config.i18n.data.messages['en-US'].introPage.ul2"
-          :key="index"
-        >
-          {{ $t('introPage.ul2.' + index) }}
-        </li>
-      </ul>
-      <p>
-        {{ $t('introPage.p3') }}
-      </p>
-
-      <div
-        class="custom-callout"
-      >
-        <p
-          class="no-margin"
-          v-html="$t('introPage.callout1.p1')"
-        />
-      </div>
-    -->
     </div>
   </div>
 </template>
 
 <script>
 
-// import TopicComponent from '@phila/vue-comps/src/components/TopicComponent.vue';
-import PhilaButton from '@phila/pinboard/src/components/PhilaButton.vue';
-// import callout from '@phila/vue-comps/src/components/Callout.vue';
-
 export default {
   name: 'CustomGreeting',
-  components: {
-    PhilaButton,
-    // callout,
-  },
-  // mixins: [ TopicComponent ],
   props: {
     'message': {
       type: String,
@@ -163,65 +114,82 @@ export default {
         `;
     },
   },
-  watch: {
-    database() {
-      let subsections = this.getCounts();
-      this.subsections = subsections;
-      this.$store.commit('setSubsections', subsections);
-    },
-  },
-  mounted() {
-    this.sections = this.$config.sections;
-  },
-  methods: {
-    getCounts() {
-      // console.log('customGreeting.vue getCounts is running');
-      const refineData = this.database;
-      // const refineData = this.sources[this.$appType].data.rows;
-
-      let service = '';
-
-      // console.log('in getRefineSearchList, refineData:', refineData);
-      refineData.forEach((arrayElem) => {
-        // console.log('arrayElem:', arrayElem);
-        if (arrayElem.services_offered) {
-          service += `${arrayElem.services_offered},`;
-        } else if (arrayElem.attributes.CATEGORY) {
-          service += `${arrayElem.attributes.CATEGORY},`;
-        }
-      });
-
-      // TODO: break this into smaller chunks
-      // let serviceArray = service.split(/(,|;)/);
-      let serviceArray = service.split(',');
-      serviceArray = serviceArray.map(s => s.trim());
-
-      // const uniqArray = [ ...new Set(serviceArray) ];
-      // console.log('serviceArray:', serviceArray, 'uniqArray:', uniqArray);
-      //
-      // // clean up any dangling , or ;
-      // let uniq = uniqArray.filter(a => a.length > 2);
-      //
-      // uniq.filter(Boolean); // remove empties
-
-      let countObject = serviceArray.reduce(function (acc, curr) {
-        if (typeof acc[curr] == 'undefined') {
-          acc[curr] = 1;
-        } else {
-          acc[curr] += 1;
-        }
-        return acc;
-      }, {});
-
-      return countObject;
-    },
-  },
+  // watch: {
+  //   database() {
+  //     let subsections = this.getCounts();
+  //     this.subsections = subsections;
+  //     this.$store.commit('setSubsections', subsections);
+  //   },
+  // },
+  // mounted() {
+  //   this.sections = this.$config.sections;
+  // },
+  // methods: {
+  //   getCounts() {
+  //     // console.log('customGreeting.vue getCounts is running');
+  //     const refineData = this.database;
+  //     // const refineData = this.sources[this.$appType].data.rows;
+  //
+  //     let service = '';
+  //
+  //     // console.log('in getRefineSearchList, refineData:', refineData);
+  //     refineData.forEach((arrayElem) => {
+  //       // console.log('arrayElem:', arrayElem);
+  //       if (arrayElem.services_offered) {
+  //         service += `${arrayElem.services_offered},`;
+  //       } else if (arrayElem.attributes.CATEGORY) {
+  //         service += `${arrayElem.attributes.CATEGORY},`;
+  //       }
+  //     });
+  //
+  //     // TODO: break this into smaller chunks
+  //     // let serviceArray = service.split(/(,|;)/);
+  //     let serviceArray = service.split(',');
+  //     serviceArray = serviceArray.map(s => s.trim());
+  //
+  //     // const uniqArray = [ ...new Set(serviceArray) ];
+  //     // console.log('serviceArray:', serviceArray, 'uniqArray:', uniqArray);
+  //     //
+  //     // // clean up any dangling , or ;
+  //     // let uniq = uniqArray.filter(a => a.length > 2);
+  //     //
+  //     // uniq.filter(Boolean); // remove empties
+  //
+  //     let countObject = serviceArray.reduce(function (acc, curr) {
+  //       if (typeof acc[curr] == 'undefined') {
+  //         acc[curr] = 1;
+  //       } else {
+  //         acc[curr] += 1;
+  //       }
+  //       return acc;
+  //     }, {});
+  //
+  //     return countObject;
+  //   },
+  // },
 };
 </script>
 
 <style scoped>
 
-  h1 {
+  .container {
+    margin-bottom: 1rem;
+  }
+
+  .list-div {
+    margin-bottom: 1rem;
+  }
+
+  .open-list-button {
+    text-transform: uppercase;
+  }
+
+  .custom-greeting {
+    padding: 2rem;
+  }
+
+
+  /* h1 {
     font-size: 20px;
   }
 
@@ -255,10 +223,6 @@ export default {
     margin-top: 6px;
     margin-bottom: 14px;
     width: 200px;
-  }
-
-  .custom-greeting {
-    padding: 12px;
   }
 
   .exclamation-holder {
@@ -302,13 +266,10 @@ export default {
     font-size: 14px;
   }
 
-  /*medium*/
   @media screen and (min-width: 750px) {
     .mb-panel-topics-greeting {
-      /*make this scroll on medium screens*/
-      /*REVIEW this is a little hacky. the 120px shouldn't be hard-coded.*/
       height: calc(100vh - 120px);
       overflow: auto;
     }
-  }
+  } */
 </style>

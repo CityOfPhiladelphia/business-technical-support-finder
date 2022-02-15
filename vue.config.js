@@ -22,7 +22,6 @@ module.exports = {
           @import "~@phila/phila-ui/src/assets/styles/scss/functions.scss";
           @import "~@phila/phila-ui/src/assets/styles/scss/colors.scss";
         `,
-
         // @import "@/scss/_variables.scss";
         // @import "@/scss/_mixins.scss";
       },
@@ -42,9 +41,11 @@ module.exports = {
   transpileDependencies: [
     // can be string or regex
     '@phila/pinboard',
-    '@phila/vue-comps',
+    '@phila/phila-ui',
+    // '@phila/vue-comps',
     '@phila/vue-mapping',
     '@phila/vue-datafetch',
+    'fuse.js',
     // /other-dep/
   ],
 
