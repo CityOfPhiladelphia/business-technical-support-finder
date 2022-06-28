@@ -15,7 +15,11 @@ console.log('main.js process.env.NODE_ENV:', process.env.NODE_ENV, 'process.env.
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons/faExclamationTriangle';
 import { faHandHoldingHeart } from '@fortawesome/free-solid-svg-icons/faHandHoldingHeart';
-library.add(faExclamationTriangle, faHandHoldingHeart);
+import { faTimes as farTimes } from '@fortawesome/pro-regular-svg-icons/faTimes';
+import { faPlus as farPlus } from '@fortawesome/pro-regular-svg-icons/faPlus';
+import { faMinus as farMinus } from '@fortawesome/pro-regular-svg-icons/faMinus';
+
+library.add(faExclamationTriangle, faHandHoldingHeart, farTimes, farPlus, farMinus);
 
 // import pinboard
 import pinboard from '@phila/pinboard/src/main.js';
