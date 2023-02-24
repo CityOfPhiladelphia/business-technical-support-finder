@@ -36,7 +36,6 @@ const customComps = {
   'customGreeting': customGreeting,
 };
 
-
 pinboard({
   app: {
     title: 'Resources for businesses',
