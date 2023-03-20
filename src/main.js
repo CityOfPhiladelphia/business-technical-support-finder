@@ -26,8 +26,6 @@ library.add(faExclamationTriangle, faHandHoldingHeart, farAngleDown, farAngleUp,
 // import pinboard
 import pinboard from '@phila/pinboard/src/main.js';
 
-// import greeting from './general/greeting';
-
 // data-sources
 import business from './data-sources/business';
 
@@ -47,31 +45,24 @@ pinboard({
   gtag: {
     category: 'rf-business',
   },
+  printView: false,
+  allowPrint: true,
+  showBuffers: true,
   resetDataOnGeocode: true,
-  // addressInput: {
-  //   placeholder: 'Search by address',
-  // },
+  retractableRefine: false,
+  dropdownRefine: false,
   searchBar: {
     placeholder: 'Search by address',
     searchTypes: [
       'address',
-      // 'keyword',
     ],
     labelText:  {
       address: 'Search by address',
-      // keyword: 'Search by keyword',
     },
     placeholderText: {
       address: 'Search by address',
-      // keyword: 'Search by keyword',
     },
   },
-  // comboSearch: {
-  //   dropdown: [ 'address' ],
-  //   placeholderText: 'Search by address',
-  // },
-  customComps,
-  // greeting,
   locationInfo: {
     siteName: function(item, transforms) {
       let value;
@@ -83,6 +74,7 @@ pinboard({
       return value;
     },
   },
+  customComps,
   refine: {
     type: 'categoryField_array',
     value: function(item) {
