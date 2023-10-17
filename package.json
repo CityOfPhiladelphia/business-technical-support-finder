@@ -14,7 +14,7 @@
     "@fortawesome/pro-light-svg-icons": "5.15.4",
     "@fortawesome/pro-regular-svg-icons": "5.15.4",
     "@fortawesome/pro-solid-svg-icons": "5.15.4",
-    "@phila/pinboard": "https://github.com/CityOfPhiladelphia/pinboard#8ff0f80646caf323b982efe4baed7898c9476ad4",
+    "@phila/pinboard": "1.2.7",
     "bulma": "^0.9.4",
     "core-js": "^3.25.1",
     "vue": "^2.7.10"
