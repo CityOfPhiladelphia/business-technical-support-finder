@@ -26,8 +26,6 @@ library.add(faExclamationTriangle, faHandHoldingHeart, farAngleDown, farAngleUp,
 // import pinboard
 import pinboard from '@phila/pinboard/src/main.js';
 
-// import greeting from './general/greeting';
-
 // data-sources
 import business from './data-sources/business';
 
@@ -38,6 +36,7 @@ const customComps = {
 
 
 pinboard({
+  publicPath: process.env.VUE_APP_PUBLICPATH,
   app: {
     title: 'Resources for businesses',
     subtitle: 'Find services and support for businesses in Philadelphia',
@@ -47,31 +46,26 @@ pinboard({
   gtag: {
     category: 'rf-business',
   },
+  // printView: false,
+  anySearch: true,
+  // allowZipcodeSearch: true,
+  allowPrint: true,
+  showBuffers: true,
   resetDataOnGeocode: true,
-  // addressInput: {
-  //   placeholder: 'Search by address',
-  // },
+  retractableRefine: false,
+  dropdownRefine: false,
   searchBar: {
     placeholder: 'Search by address',
     searchTypes: [
       'address',
-      // 'keyword',
     ],
     labelText:  {
       address: 'Search by address',
-      // keyword: 'Search by keyword',
     },
     placeholderText: {
       address: 'Search by address',
-      // keyword: 'Search by keyword',
     },
   },
-  // comboSearch: {
-  //   dropdown: [ 'address' ],
-  //   placeholderText: 'Search by address',
-  // },
-  customComps,
-  // greeting,
   locationInfo: {
     siteName: function(item, transforms) {
       let value;
@@ -83,6 +77,7 @@ pinboard({
       return value;
     },
   },
+  customComps,
   refine: {
     type: 'categoryField_array',
     value: function(item) {
@@ -95,6 +90,7 @@ pinboard({
   router: {
     enabled: false,
   },
+  projection: '4326',
   geocoder: {
     url(input) {
       const inputEncoded = encodeURIComponent(input);
@@ -136,7 +132,17 @@ pinboard({
     // password: process.env.VUE_APP_CYCLOMEDIA_PASSWORD,
     // apiKey: process.env.VUE_APP_CYCLOMEDIA_API_KEY,
   },
-  markerType: 'pin-marker',
+  markerType: 'circle-marker',
+  circleMarkers: {
+    color: '#9400c6',
+    borderColor: 'white',
+    weight: 1,
+    radius: 8,
+    mobileRadius: 12,
+    size: 16,
+    mobileSize: 20,
+  },
+  // markerType: 'pin-marker',
   map: {
     type: 'mapbox',
     // tiles: 'hosted',
