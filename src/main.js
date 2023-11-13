@@ -48,23 +48,25 @@ pinboard({
   },
   // printView: false,
   anySearch: true,
-  // allowZipcodeSearch: true,
+  allowZipcodeSearch: true,
   allowPrint: true,
   showBuffers: true,
   resetDataOnGeocode: true,
   retractableRefine: false,
   dropdownRefine: false,
   searchBar: {
-    placeholder: 'Search by address',
+    // placeholder: 'Search by address',
     searchTypes: [
       'address',
+      'zipcode',
     ],
-    labelText:  {
-      address: 'Search by address',
-    },
-    placeholderText: {
-      address: 'Search by address',
-    },
+    labelText: 'Search by address or zipcode',
+    // labelText:  {
+    //   address: 'Search by address',
+    // },
+    // placeholderText: {
+    //   address: 'Search by address',
+    // },
   },
   locationInfo: {
     siteName: function(item, transforms) {
