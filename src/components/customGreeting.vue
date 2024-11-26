@@ -119,6 +119,6 @@ export default {
 
 <style lang="scss" scoped>
 
-@import "../../node_modules/@phila/pinboard/src/assets/scss/customGreeting.scss";
+// @import "../../node_modules/@phila/pinboard/src/assets/scss/customGreeting.scss";
 
 </style>

@@ -5,26 +5,21 @@
 // (we might not need to use axios with new vue async tools)
 // if that is not needed, we can move this info to main.js
 
-// turn off console logging in production
-if (process.env.NODE_ENV === 'production') {
-  console.log = console.info = console.debug = console.error = function () {};
-}
-console.log('main.js process.env.NODE_ENV:', process.env.NODE_ENV, 'process.env.VUE_APP_PUBLICPATH:', process.env.VUE_APP_PUBLICPATH);
 
 // Font Awesome Icons
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons/faExclamationTriangle';
-import { faHandHoldingHeart } from '@fortawesome/free-solid-svg-icons/faHandHoldingHeart';
-import { faAngleDown as farAngleDown } from '@fortawesome/pro-regular-svg-icons/faAngleDown';
-import { faAngleUp as farAngleUp } from '@fortawesome/pro-regular-svg-icons/faAngleUp';
-import { faTimes as farTimes } from '@fortawesome/pro-regular-svg-icons/faTimes';
-import { faPlus as farPlus } from '@fortawesome/pro-regular-svg-icons/faPlus';
-import { faMinus as farMinus } from '@fortawesome/pro-regular-svg-icons/faMinus';
+import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
+import { faHandHoldingHeart } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDown as farAngleDown } from '@fortawesome/pro-regular-svg-icons';
+import { faAngleUp as farAngleUp } from '@fortawesome/pro-regular-svg-icons';
+import { faTimes as farTimes } from '@fortawesome/pro-regular-svg-icons';
+import { faPlus as farPlus } from '@fortawesome/pro-regular-svg-icons';
+import { faMinus as farMinus } from '@fortawesome/pro-regular-svg-icons';
 
 library.add(faExclamationTriangle, faHandHoldingHeart, farAngleDown, farAngleUp, farTimes, farPlus, farMinus);
 
 // import pinboard
-import pinboard from '@phila/pinboard/src/main.js';
+import pinboard from '../node_modules/@phila/pinboard/src/main.js';
 
 // data-sources
 import business from './data-sources/business';
@@ -36,7 +31,14 @@ const customComps = {
 
 
 pinboard({
-  publicPath: process.env.VUE_APP_PUBLICPATH,
+  i18n: {
+    data: {
+      messages: {
+        'en-US': {}
+      }
+    }
+  },
+  publicPath: import.meta.env.VITE_PUBLICPATH,
   app: {
     title: 'Resources for businesses',
     subtitle: 'Find services and support for businesses in Philadelphia',
@@ -246,8 +248,8 @@ pinboard({
       },
     },
   },
-  i18n: {
-    // header: 'i18nBanner',
-    enabled: false,
-  },
+  // i18n: {
+  //   // header: 'i18nBanner',
+  //   enabled: false,
+  // },
 });
