@@ -19,18 +19,19 @@ import { faMinus as farMinus } from '@fortawesome/pro-regular-svg-icons';
 library.add(faExclamationTriangle, faHandHoldingHeart, farAngleDown, farAngleUp, farTimes, farPlus, farMinus);
 
 // import pinboard
+// import pinboard from '@phila/pinboard';
 import pinboard from '../node_modules/@phila/pinboard/src/main.js';
+// import '../node_modules/@phila/pinboard/dist/style.css';
 
 // data-sources
 import business from './data-sources/business';
 
 import customGreeting from './components/customGreeting.vue';
-const customComps = {
+const customComps = markRaw({
   'customGreeting': customGreeting,
-};
+});
 
-
-pinboard({
+let $config = {
   i18n: {
     data: {
       messages: {
@@ -57,25 +58,19 @@ pinboard({
   retractableRefine: false,
   dropdownRefine: false,
   searchBar: {
-    // placeholder: 'Search by address',
     searchTypes: [
       'address',
       'zipcode',
     ],
-    labelText: 'Search by address or zipcode',
-    // labelText:  {
-    //   address: 'Search by address',
-    // },
-    // placeholderText: {
-    //   address: 'Search by address',
-    // },
+    searchDistance: 3,
+    fuseThreshold: 0.4,
   },
   locationInfo: {
+    siteNameField: 'organization_name',
     siteName: function(item, transforms) {
       let value;
-      value = item.organization_name;
+      value = item.properties.organization_name;
       if (value.includes('(WORC)')) {
-        // console.log('value:', value);
         value = 'Women\'s Opportunity Resource Center (WORC)';
       }
       return value;
@@ -85,7 +80,7 @@ pinboard({
   refine: {
     type: 'categoryField_array',
     value: function(item) {
-      return item.services_offered;
+      return item.properties.services_offered;
     },
   },
   dataSources: {
@@ -102,6 +97,27 @@ pinboard({
     },
     params: {
       include_units: true,
+    },
+  },
+  cyclomedia: {
+    enabled: false,
+    // measurementAllowed: false,
+    // popoutAble: true,
+    // recordingsUrl: 'https://atlas.cyclomedia.com/Recordings/wfs',
+    // username: process.env.VUE_APP_CYCLOMEDIA_USERNAME,
+    // password: process.env.VUE_APP_CYCLOMEDIA_PASSWORD,
+    // apiKey: process.env.VUE_APP_CYCLOMEDIA_API_KEY,
+  },
+  markerType: 'circle-marker',
+  mapLayer: {
+    id: 'resources',
+    source: 'resources',
+    type: 'circle',
+    paint: {
+      'circle-radius': 7,
+      'circle-color': '#9400c6',
+      'circle-stroke-width': 1,
+      'circle-stroke-color': 'white',
     },
   },
   footer: [
@@ -127,129 +143,9 @@ pinboard({
       text: "Feedback",
     },
   ],
-  cyclomedia: {
-    enabled: false,
-    // measurementAllowed: false,
-    // popoutAble: true,
-    // recordingsUrl: 'https://atlas.cyclomedia.com/Recordings/wfs',
-    // username: process.env.VUE_APP_CYCLOMEDIA_USERNAME,
-    // password: process.env.VUE_APP_CYCLOMEDIA_PASSWORD,
-    // apiKey: process.env.VUE_APP_CYCLOMEDIA_API_KEY,
-  },
-  markerType: 'circle-marker',
-  circleMarkers: {
-    color: '#9400c6',
-    borderColor: 'white',
-    weight: 1,
-    radius: 8,
-    mobileRadius: 12,
-    size: 16,
-    mobileSize: 20,
-  },
-  // markerType: 'pin-marker',
-  map: {
-    type: 'mapbox',
-    // tiles: 'hosted',
-    containerClass: 'map-container',
-    defaultBasemap: 'pwd',
-    center: [ -75.163471, 39.953338 ],
-    zoom: 12,
-    geocodeZoom: 15,
-    imagery: {
-      enabled: false,
-    },
-    basemaps: {
-      pwd: {
-        url: 'https://tiles.arcgis.com/tiles/fLeGjb7u4uXqeF9q/arcgis/rest/services/CityBasemap/MapServer',
-        tiledLayers: [
-          'cityBasemapLabels',
-        ],
-        type: 'featuremap',
-        attribution: 'Parcels: Philadelphia Water',
-      },
-    },
-    tiledLayers: {
-      cityBasemapLabels: {
-        url: 'https://tiles.arcgis.com/tiles/fLeGjb7u4uXqeF9q/arcgis/rest/services/CityBasemap_Labels/MapServer',
-        zIndex: '3',
-      },
-    },
-  },
-  mbStyle: {
-    version: 8,
-    sources: {
-      pwd: {
-        tiles: [
-          'https://tiles.arcgis.com/tiles/fLeGjb7u4uXqeF9q/arcgis/rest/services/CityBasemap/MapServer/tile/{z}/{y}/{x}',
-        ],
-        type: 'raster',
-        tileSize: 256,
-      },
-    },
-    layers: [
-      {
-        id: 'pwd',
-        type: 'raster',
-        source: 'pwd',
-      },
-    ],
-  },
-  basemapSources: {
-    pwd: {
-      source: {
-        tiles: [
-          'https://tiles.arcgis.com/tiles/fLeGjb7u4uXqeF9q/arcgis/rest/services/CityBasemap/MapServer/tile/{z}/{y}/{x}',
-          // '//tiles.arcgis.com/tiles/fLeGjb7u4uXqeF9q/arcgis/rest/services/CityBasemap_Labels/MapServer/tile/{z}/{y}/{x}'
-        ],
-        type: 'raster',
-        tileSize: 256,
-      },
-      layer: {
-        id: 'pwd',
-        type: 'raster',
-      },
-    },
-    imagery2019: {
-      source: {
-        tiles: [
-          'https://tiles.arcgis.com/tiles/fLeGjb7u4uXqeF9q/arcgis/rest/services/CityImagery_2019_3in/MapServer/tile/{z}/{y}/{x}',
-          // '//tiles.arcgis.com/tiles/fLeGjb7u4uXqeF9q/arcgis/rest/services/CityBasemap_Labels/MapServer/tile/{z}/{y}/{x}'
-        ],
-        type: 'raster',
-        tileSize: 256,
-      },
-      layer: {
-        id: 'imagery2019',
-        type: 'raster',
-      },
-    },
-  },
-  basemapLabelSources:{
-    cityBasemapLabels: {
-      source: {
-        tiles: [ 'https://tiles.arcgis.com/tiles/fLeGjb7u4uXqeF9q/arcgis/rest/services/CityBasemap_Labels/MapServer/tile/{z}/{y}/{x}' ],
-        type: 'raster',
-        tileSize: 256,
-      },
-      layer: {
-        id: 'cityBasemapLabels',
-        type: 'raster',
-      },
-    },
-    imageryBasemapLabels: {
-      source: {
-        tiles: [ 'https://tiles.arcgis.com/tiles/fLeGjb7u4uXqeF9q/arcgis/rest/services/CityImagery_Labels/MapServer/tile/{z}/{y}/{x}' ],
-        type: 'raster',
-        tileSize: 256,
-      },
-      layer: {
-        id: 'imageryBasemapLabels',
-        type: 'raster',
-      },
-    },
-  },
-  // i18n: {
-  //   // header: 'i18nBanner',
-  //   enabled: false,
-  // },
-});
+};
+
+console.log('$config:', $config);
+
+pinboard($config);
+export default $config;

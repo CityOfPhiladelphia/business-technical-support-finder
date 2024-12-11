@@ -7,6 +7,14 @@ import AutoImport from 'unplugin-auto-import/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // api: 'modern-compiler',
+        includePaths: ['node_modules'],
+      },
+    },
+  },
   server: {
     fs: {
       allow: [
@@ -20,7 +28,7 @@ export default defineConfig({
     vueDevTools(),
     AutoImport({
       imports: [
-        // 'vue',
+        'vue',
         // 'vue-router',
         // {
         //   'pinia': [ 'defineStore', 'storeToRefs', 'acceptHMRUpdate' ],

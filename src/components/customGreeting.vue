@@ -1,12 +1,64 @@
+<script setup>
+
+import $config from '../main.js';
+
+const props = defineProps({
+  database: {
+    type: Array,
+  },
+  isMobile: {
+    type: Boolean,
+    default: false,
+  },
+});
+  
+// computed
+const i18nEnabled = computed(() => {
+  if (this.$config.i18n) {
+    return true;
+  }
+  return false;
+});
+
+// hasError() {
+//   return this.$store.state.geocode.status === 'error';
+// }
+// errorMessage() {
+//   const input = this.$store.state.geocode.input;
+//   return `
+//       <p>
+//         We couldn't find
+//         ${input ? '<strong>' + input + '</strong>' : 'that address'}.
+//         Are you sure everything was spelled correctly?
+//       </p>
+//       <p>
+//         Here are some examples of things you can search for:
+//       </p>
+//       <ul>
+//         <li>1234 Market St</li>
+//         <li>1001 Pine Street #201</li>
+//         <li>12th & Market</li>
+//         <li>883309050 (an OPA number with no hyphens or other characters)</li>
+//       </ul>
+//     `;
+// }
+</script>
+
 <template>
   <div
     class="custom-greeting content"
   >
     <div class="has-text-centered container">
       <button
-        class="button open-list-button"
+        class="button greeting-button"
         @click="$emit('view-list')"
         v-html="$t('app.viewList')"
+      />
+      <button
+        v-if="isMobile"
+        class="button greeting-button"
+        @click="$emit('view-map')"
+        v-html="$t('app.viewMap')"
       />
     </div>
 
@@ -49,76 +101,19 @@
   </div>
 </template>
 
-<script>
-
-export default {
-  name: 'CustomGreeting',
-  props: {
-    'message': {
-      type: String,
-      default: function() {
-        return 'defaultMessage';
-      },
-    },
-  },
-  data() {
-    let data = {
-      sections: {},
-      subsections: {},
-    };
-    return data;
-  },
-  computed: {
-    i18nEnabled() {
-      if (this.$config.i18n) {
-        return true;
-      }
-      return false;
-
-    },
-    calloutOptions() {
-      return {};
-    },
-    calloutSlots() {
-      return {
-        text: 'test',
-      };
-    },
-    database() {
-      if (this.$store.state.sources[this.$appType].data) {
-        return this.$store.state.sources[this.$appType].data.rows || this.$store.state.sources[this.$appType].data.features || this.$store.state.sources[this.$appType].data;
-      }
-      return [];
-
-    },
-    hasError() {
-      return this.$store.state.geocode.status === 'error';
-    },
-    errorMessage() {
-      const input = this.$store.state.geocode.input;
-      return `
-          <p>
-            We couldn't find
-            ${input ? '<strong>' + input + '</strong>' : 'that address'}.
-            Are you sure everything was spelled correctly?
-          </p>
-          <p>
-            Here are some examples of things you can search for:
-          </p>
-          <ul>
-            <li>1234 Market St</li>
-            <li>1001 Pine Street #201</li>
-            <li>12th & Market</li>
-            <li>883309050 (an OPA number with no hyphens or other characters)</li>
-          </ul>
-        `;
-    },
-  },
-};
-</script>
-
 <style lang="scss" scoped>
 
-// @import "../../node_modules/@phila/pinboard/src/assets/scss/customGreeting.scss";
+.greeting-button {
+  background-color: #0f4d90 !important;
+  border-color: #0f4d90 !important;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+  margin: 1rem;
+}
+
+.greeting-button:hover {
+  background-color: #444444 !important;
+}
 
 </style>
