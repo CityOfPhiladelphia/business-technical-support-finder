@@ -46,7 +46,7 @@ const i18nEnabled = computed(() => {
 
 <template>
   <div
-    class="custom-greeting content"
+    class="main-greeting"
   >
     <div class="has-text-centered container">
       <button
@@ -102,6 +102,10 @@ const i18nEnabled = computed(() => {
 </template>
 
 <style lang="scss" scoped>
+
+.main-greeting {
+  padding: 1rem;
+}
 
 .greeting-button {
   background-color: #0f4d90 !important;
