@@ -67,7 +67,7 @@ const i18nEnabled = computed(() => {
     >
       <h3>About this finder</h3>
       <p>This tool can help you connect with organizations that offer guidance on starting, running, and growing a business.  You can:</p>
-      <div class="callout list-div">
+      <div class="callout intro-list">
         <ul>
           <li>Browse the list of organizations.</li>
           <li>Search by address or keyword.</li>
@@ -83,41 +83,22 @@ const i18nEnabled = computed(() => {
       </p>
 
       <h3>Additional resources</h3>
-      <ul>
-        <li>
-          For the latest webinars and events, visit <a
-            target="_blank"
-            href="https://www.phila.gov/the-latest/all-events/?category=Department%20of%20Commerce"
-          >Commerce's event page</a>.
-        </li>
-        <li>
-          For the latest programs and services for businesses, visit <a
-            target="_blank"
-            href="https://www.phila.gov/departments/department-of-commerce/"
-          >Commerce's homepage</a>.
-        </li>
-      </ul>
+      <div class="intro-list">
+        <ul>
+          <li>
+            For the latest webinars and events, visit <a
+              target="_blank"
+              href="https://www.phila.gov/the-latest/all-events/?category=Department%20of%20Commerce"
+            >Commerce's event page</a>.
+          </li>
+          <li>
+            For the latest programs and services for businesses, visit <a
+              target="_blank"
+              href="https://www.phila.gov/departments/department-of-commerce/"
+            >Commerce's homepage</a>.
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
-
-<style lang="scss" scoped>
-
-.main-greeting {
-  padding: 1rem;
-}
-
-.greeting-button {
-  background-color: #0f4d90 !important;
-  border-color: #0f4d90 !important;
-  font-size: 1rem;
-  color: white;
-  cursor: pointer;
-  margin: 1rem;
-}
-
-.greeting-button:hover {
-  background-color: #444444 !important;
-}
-
-</style>
