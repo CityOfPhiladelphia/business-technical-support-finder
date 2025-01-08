@@ -99,7 +99,7 @@ let $config = {
       include_units: true,
     },
   },
-  markerType: 'circle-marker',
+  // markerType: 'circle-marker',
   mapLayer: {
     id: 'resources',
     source: 'resources',
