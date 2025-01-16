@@ -19,9 +19,9 @@ import { faMinus as farMinus } from '@fortawesome/pro-regular-svg-icons';
 library.add(faExclamationTriangle, faHandHoldingHeart, farAngleDown, farAngleUp, farTimes, farPlus, farMinus);
 
 // import pinboard
-// import pinboard from '@phila/pinboard';
-import pinboard from '../node_modules/@phila/pinboard/src/main.js';
-// import '../node_modules/@phila/pinboard/dist/style.css';
+import pinboard from '@phila/pinboard';
+// import pinboard from '../node_modules/@phila/pinboard/src/main.js';
+import '../node_modules/@phila/pinboard/dist/style.css';
 
 // data-sources
 import business from './data-sources/business';
