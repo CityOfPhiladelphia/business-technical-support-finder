@@ -140,7 +140,7 @@ let $config = {
   ],
 };
 
-console.log('$config:', $config);
+// if (import.meta.env.VITE_DEBUG) console.log('$config:', $config);
 
 pinboard($config);
 export default $config;
