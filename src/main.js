@@ -22,10 +22,12 @@ import { faMinus as farMinus } from '@fortawesome/pro-regular-svg-icons';
 
 library.add(faExclamationTriangle, faHandHoldingHeart, farAngleDown, farAngleUp, farTimes, farPlus, farMinus);
 
-// import pinboard
+// use these if running off unlinked package
 import pinboard from '@phila/pinboard';
-// import pinboard from '../node_modules/@phila/pinboard/src/main.js';
 import '../node_modules/@phila/pinboard/dist/style.css';
+// OR
+// use this if running off linked package
+// import pinboard from '../node_modules/@phila/pinboard/src/main.js';
 
 // data-sources
 import business from './data-sources/business';
@@ -53,14 +55,10 @@ let $config = {
   gtag: {
     category: 'rf-business',
   },
-  // printView: false,
   anySearch: true,
   allowZipcodeSearch: true,
   allowPrint: true,
-  showBuffers: true,
-  resetDataOnGeocode: true,
   retractableRefine: false,
-  dropdownRefine: false,
   searchBar: {
     searchTypes: [
       'address',
@@ -90,9 +88,6 @@ let $config = {
   dataSources: {
     business,
   },
-  router: {
-    enabled: false,
-  },
   projection: '4326',
   geocoder: {
     url(input) {
@@ -103,7 +98,6 @@ let $config = {
       include_units: true,
     },
   },
-  // markerType: 'circle-marker',
   mapLayer: {
     id: 'resources',
     source: 'resources',
